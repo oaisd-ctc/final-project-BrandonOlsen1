@@ -35,27 +35,10 @@ public class Deck : MonoBehaviour
     }
 
 
-    public GameObject[] cardPrefabs;
-
-    void Start()
-    {
-        for (int suitIndex = 0; suitIndex < 4; suitIndex++)
-        {
-            for (int rankIndex = 0; rankIndex < 13; rankIndex++)
-            {
-                GameObject card = Instantiate(cardPrefabs[suitIndex * 13 + rankIndex]);
-                card.transform.parent = transform;
-                Deck cardScript = card.GetComponent<Deck>();
-                cardScript.suit = (Suit)suitIndex;
-                cardScript.rank = (Rank)rankIndex;
-            }
-        }
-    }
 
 
 
-
-
+     
 
 
 
