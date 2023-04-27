@@ -167,7 +167,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &441618675
 PrefabInstance:
@@ -178,7 +178,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1799690156611692411, guid: d00a1da7389a9e242b78ab13b4f4ddab, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1799690156611692411, guid: d00a1da7389a9e242b78ab13b4f4ddab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -222,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7080509726073119412, guid: d00a1da7389a9e242b78ab13b4f4ddab, type: 3}
       propertyPath: m_Name
-      value: Back Blue 1
+      value: Card
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d00a1da7389a9e242b78ab13b4f4ddab, type: 3}
@@ -310,118 +310,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &872903575
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 872903578}
-  - component: {fileID: 872903577}
-  - component: {fileID: 872903576}
-  m_Layer: 0
-  m_Name: Blackjack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &872903576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872903575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68c41a1cb5acac64f85a588b4b12277d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &872903577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872903575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 931bc13e6a8a0e54d80f5447c638e212, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardFaces:
-  - {fileID: 21300000, guid: 67d10eae215843f46a3c31c1742a4b00, type: 3}
-  - {fileID: 21300000, guid: 93852d1de3799e94488eae0fbc3b91f3, type: 3}
-  - {fileID: 21300000, guid: a5af5b5d50f5f054b97e7338968cd30f, type: 3}
-  - {fileID: 21300000, guid: a0b34ea14d977094a8507a5169f1f868, type: 3}
-  - {fileID: 21300000, guid: b736be34320e9a3479fa2c60a4ef2818, type: 3}
-  - {fileID: 21300000, guid: 7bf33ad797411454496e94621e115722, type: 3}
-  - {fileID: 21300000, guid: 1c20b5ae6a43cf74cb47ebaf25bd522f, type: 3}
-  - {fileID: 21300000, guid: c38ffa5a5796f4f48971d94b90222446, type: 3}
-  - {fileID: 21300000, guid: 66420776374c2a342abdb396e185831b, type: 3}
-  - {fileID: 21300000, guid: 9c2ab0028ba7bed47ab88cf66b274080, type: 3}
-  - {fileID: 21300000, guid: dfbbad995ba36624b9ede21a9dd0be48, type: 3}
-  - {fileID: 21300000, guid: 35b5574c76b9e594b90c479910ca72d6, type: 3}
-  - {fileID: 21300000, guid: 7d2b4e56e1336734e9af93ad8e81f543, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  cardPrefab: {fileID: 7080509726073119412, guid: d00a1da7389a9e242b78ab13b4f4ddab, type: 3}
-  deck: []
---- !u!4 &872903578
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872903575}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0333385, y: 1.6769674, z: -0.33013698}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1370177347
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +353,7 @@ Transform:
   m_Children:
   - {fileID: 1685833899}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1685833898
 GameObject:
@@ -644,7 +532,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: a2cc4ec06f5e320488e1bac8a9ae56fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -702,7 +590,7 @@ Transform:
   - {fileID: 1979549124}
   - {fileID: 1809813875}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922423389
 GameObject:
@@ -746,7 +634,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1979549122
 GameObject:
@@ -832,3 +720,60 @@ Transform:
   m_Father: {fileID: 1872321989}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &118863221563713903
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 118863221362694901, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 118863221362694901, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118863221362694901, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118863221362694901, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118863221362694901, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 118863221362694901, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118863221362694901, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118863221362694901, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118863221362694901, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118863221362694901, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118863221362694901, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118863221362694904, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: m_Name
+      value: Blackjack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}

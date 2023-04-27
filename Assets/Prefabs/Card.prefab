@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1799690156611692411}
   - component: {fileID: 8075696967154283502}
+  - component: {fileID: 320579146}
+  - component: {fileID: 320579147}
   m_Layer: 0
-  m_Name: Back Blue 1
+  m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,3 +86,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &320579146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080509726073119412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9a290d6d36e67438f3ee160e363136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faceUp: 1
+--- !u!114 &320579147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080509726073119412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709b5ce9dbae9fb4a901439bf1aa1ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardFace: {fileID: 0}
+  cardBack: {fileID: 21300000, guid: 60eef6d41ce5bee4687c282ebcd71094, type: 3}
