@@ -100,6 +100,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9349945c5ff107f4488b9b268b7ec137, type: 3}
   - {fileID: 21300000, guid: 1c6aa9e42d51325438f163225bbaad97, type: 3}
   cardPrefab: {fileID: 7080509726073119412, guid: d00a1da7389a9e242b78ab13b4f4ddab, type: 3}
+  dealerPos:
+  - {fileID: 0}
+  - {fileID: 0}
+  playerPos:
+  - {fileID: 0}
   deck: []
 --- !u!114 &118863221362694903
 MonoBehaviour:

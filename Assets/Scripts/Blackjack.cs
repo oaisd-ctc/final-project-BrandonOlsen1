@@ -1,27 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 
 public class Blackjack : MonoBehaviour
 {
 
     public Sprite[] cardFaces;
     public GameObject cardPrefab;
+
+    public GameObject[] playingPos;
+
+    
+
+    
+
+    
     
 
 
    public static string[] suits = new string[] { "C", "D", "H", "S"};
    public static string[] values = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
 
+   
+
+
+   
+
+   
+
    public List<string> deck;
 
-
+     
 
      void Start()
     {
+        
         PlayCards();
+        
+        
     }
 
+    void Update() 
+    {
+        
+    } 
 
 
 
@@ -31,12 +55,6 @@ public class Blackjack : MonoBehaviour
     {
         deck = GenerateDeck();
         Shuffle(deck);
-
-        foreach (string card in deck)
-        {
-            print(card);
-
-        }
         BlackjackDeal();
     }
 
@@ -73,28 +91,52 @@ public class Blackjack : MonoBehaviour
     }
 
 
+
+
+    
+
     void BlackjackDeal()
     {
 
-
-
-
-        float yOffset = 0;
+        
+        // float yOffset = 0;
         float zOffset = 0.03f;
+        float xOffset = 0.03f;
+
+
+
+
+
         foreach (string card in deck)
         {
-                GameObject newCard = Instantiate(cardPrefab, new Vector3 (transform.position.x, transform.position.y - yOffset, transform.position.z - zOffset), Quaternion.identity);
+
+
+            for (int i = 0; i < 2; i++)
+            {
+
+
+                
+                
+
+
+
+                GameObject newCard = Instantiate(cardPrefab, new Vector3(transform.position.x + xOffset, transform.position.y, transform.position.z - zOffset), Quaternion.identity);
                 newCard.name = card;
 
                 newCard.GetComponent<Selectable>().faceUp = true;
 
-                yOffset = yOffset + 0.3f;
+                // yOffset = yOffset + 0.3f;
+                xOffset = xOffset + 0.3f;
                 zOffset = zOffset + 0.03f;
+
+            }
+            break;
+
         }
     }
     
 
-
+    
 
 
 
