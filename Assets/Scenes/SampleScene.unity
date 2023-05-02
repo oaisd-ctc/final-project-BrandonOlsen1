@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &124933884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4956538415880844129, guid: 5be4a604fcbe1e24db3b481725adc81e, type: 3}
+  m_PrefabInstance: {fileID: 1647005924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &203892820
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,8 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1abf5bd67d29f4487ed3a6a32faf25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  suit: 0
-  rank: 0
 --- !u!4 &203892822
 Transform:
   m_ObjectHideFlags: 0
@@ -169,6 +172,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &206018588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4956538415880844129, guid: 5be4a604fcbe1e24db3b481725adc81e, type: 3}
+  m_PrefabInstance: {fileID: 365755297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &365755297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -360,7 +368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0.07, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -885,6 +893,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118863221362694902, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: dealerPos
+      value: 
+      objectReference: {fileID: 206018588}
+    - target: {fileID: 118863221362694902, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
+      propertyPath: playingPos
+      value: 
+      objectReference: {fileID: 124933884}
     - target: {fileID: 118863221362694904, guid: 48b1f2d660c6a8d499cafceafc5ed02e, type: 3}
       propertyPath: m_Name
       value: Blackjack

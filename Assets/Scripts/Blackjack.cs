@@ -10,42 +10,85 @@ public class Blackjack : MonoBehaviour
     public Sprite[] cardFaces;
     public GameObject cardPrefab;
 
-    public GameObject[] playingPos;
+    public GameObject playingPos;
 
-    
-
-    
-
-    
-    
+    public GameObject dealerPos;
 
 
-   public static string[] suits = new string[] { "C", "D", "H", "S"};
-   public static string[] values = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-
-   
 
 
-   
 
-   
 
-   public List<string> deck;
 
-     
 
-     void Start()
+
+    public static string[] suits = new string[] { "C", "D", "H", "S" };
+    public static string[] values = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+
+
+
+
+
+
+
+
+
+
+
+
+    public List<string> deck;
+
+
+
+    void Start()
     {
-        
+
         PlayCards();
-        
-        
+
+
     }
 
-    void Update() 
+    void Update()
     {
+
+    }
+
+
+    public string GetValue(string card)
+    {
+
         
-    } 
+
+
+        
+        
+       for (i = 0; i < values.Length; i++)
+       {
+            
+            if (i == 0)
+            {
+                return 11;
+            }
+
+            else if (i > 10)
+            {
+                return 10;
+            }
+            
+                return (int);
+
+            
+         }
+
+        
+        return 0;
+
+
+    }
+
+
+
+    
 
 
 
@@ -56,6 +99,8 @@ public class Blackjack : MonoBehaviour
         deck = GenerateDeck();
         Shuffle(deck);
         BlackjackDeal();
+        GetValue();
+        
     }
 
 
@@ -80,7 +125,7 @@ public class Blackjack : MonoBehaviour
     {
         System.Random random = new System.Random();
         int n = list.Count;
-        while (n>1)
+        while (n > 1)
         {
             int k = random.Next(n);
             n--;
@@ -93,51 +138,54 @@ public class Blackjack : MonoBehaviour
 
 
 
-    
+
 
     void BlackjackDeal()
     {
-
-        
-        // float yOffset = 0;
-        float zOffset = 0.03f;
-        float xOffset = 0.03f;
+        float xOffset = 0f;
 
 
 
-
-
-        foreach (string card in deck)
+        for (int i = 0; i < 4; i++)
         {
+            string card = deck[i];
+            float positionx = playingPos.transform.position.x;
+            float positiony = playingPos.transform.position.y;
 
+            GameObject newCard = Instantiate(cardPrefab, new Vector2(positionx + xOffset, positiony), Quaternion.identity);
 
-            for (int i = 0; i < 2; i++)
-            {
+            newCard.name = card;
+            Debug.Log(card);
 
+            newCard.GetComponent<Selectable>().faceUp = true;
 
-                
-                
+            GetValue(card);
+            
+        i++;
 
+            string card1 = deck[i];
+            float positionx1 = dealerPos.transform.position.x;
+            float positiony1 = dealerPos.transform.position.y;
+            GameObject Dealercard = Instantiate(cardPrefab, new Vector2(positionx1 + xOffset, positiony1), Quaternion.identity);
 
+            Dealercard.name = card1;
 
-                GameObject newCard = Instantiate(cardPrefab, new Vector3(transform.position.x + xOffset, transform.position.y, transform.position.z - zOffset), Quaternion.identity);
-                newCard.name = card;
+            Dealercard.GetComponent<Selectable>().faceUp = true;
+            xOffset += 0.5f;
 
-                newCard.GetComponent<Selectable>().faceUp = true;
-
-                // yOffset = yOffset + 0.3f;
-                xOffset = xOffset + 0.3f;
-                zOffset = zOffset + 0.03f;
-
-            }
-            break;
+            GetValue(card1);
 
         }
+
+        
+
+
+
     }
-    
 
-    
 
+
+    // GameObject newCard = Instantiate(cardPrefab, new Vector3(transform.position.x + xOffset, transform.position.y, transform.position.z - zOffset), Quaternion.identity);
 
 
 }
