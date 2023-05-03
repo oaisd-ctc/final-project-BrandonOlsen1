@@ -54,44 +54,35 @@ public class Blackjack : MonoBehaviour
     }
 
 
-    public string GetValue(string card)
-    {
-
-        
-
-
-        
-        
-       for (i = 0; i < values.Length; i++)
-       {
+    // public string GetValue(string card)
+    // {
+    //     switch (card)
+    //    {
+    //     // turn jacks value to 10
+    //     case 1: 
             
-            if (i == 0)
-            {
-                return 11;
-            }
+    //     break;
 
-            else if (i > 10)
-            {
-                return 10;
-            }
-            
-                return (int);
+    //     // turn Queens value to 10
+    //     case 2:
 
-            
-         }
+    //     break;
 
+    //     // turn Kings value to 10
+    //     case 3:
+
+    //     break;
+
+    //     else 
         
-        return 0;
+    //     //return the value of the integer
+    //     return value of int
 
 
-    }
+    //    }
 
 
-
-    
-
-
-
+    // }
 
 
     public void PlayCards()
@@ -99,7 +90,7 @@ public class Blackjack : MonoBehaviour
         deck = GenerateDeck();
         Shuffle(deck);
         BlackjackDeal();
-        GetValue();
+        
         
     }
 
@@ -144,8 +135,6 @@ public class Blackjack : MonoBehaviour
     {
         float xOffset = 0f;
 
-
-
         for (int i = 0; i < 4; i++)
         {
             string card = deck[i];
@@ -155,11 +144,10 @@ public class Blackjack : MonoBehaviour
             GameObject newCard = Instantiate(cardPrefab, new Vector2(positionx + xOffset, positiony), Quaternion.identity);
 
             newCard.name = card;
-            Debug.Log(card);
 
             newCard.GetComponent<Selectable>().faceUp = true;
 
-            GetValue(card);
+            // GetValue(card);
             
         i++;
 
@@ -173,7 +161,7 @@ public class Blackjack : MonoBehaviour
             Dealercard.GetComponent<Selectable>().faceUp = true;
             xOffset += 0.5f;
 
-            GetValue(card1);
+            // GetValue(card1);
 
         }
 
