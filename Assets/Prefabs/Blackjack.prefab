@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 118863221362694902}
   - component: {fileID: 118863221362694903}
   - component: {fileID: 118863221362694900}
+  - component: {fileID: 8653489838068925654}
   m_Layer: 0
   m_Name: Blackjack
   m_TagString: Untagged
@@ -101,6 +102,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1c6aa9e42d51325438f163225bbaad97, type: 3}
   cardPrefab: {fileID: 7080509726073119412, guid: d00a1da7389a9e242b78ab13b4f4ddab, type: 3}
   playingPos: {fileID: 0}
+  dealerPos: {fileID: 0}
+  cardpointcount: 0
   deck: []
 --- !u!114 &118863221362694903
 MonoBehaviour:
@@ -166,3 +169,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8653489838068925654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118863221362694904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: ffd624fdc8c4f594eb624dfd9370fe01, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

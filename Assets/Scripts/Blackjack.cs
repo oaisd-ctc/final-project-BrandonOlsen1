@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using UnityEngine.InputSystem;
 
 public class Blackjack : MonoBehaviour
 {
@@ -14,15 +14,27 @@ public class Blackjack : MonoBehaviour
 
     public GameObject dealerPos;
 
+    public GameObject playingPos1;
 
-    public int playertotal;
-    
+
+
+    private int playertotal;
+
 
     public int cardpointcount;
 
+    private int playervalueone;
+    private int playervaluetwo;
 
+    private float xOffset;
 
+    private int deckcard;
 
+    private bool hit = false;
+    
+    int hitt = 0;
+
+    
 
 
 
@@ -32,19 +44,36 @@ public class Blackjack : MonoBehaviour
     public static string[] values = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
     public List<string> deck;
 
+
+
+    void Awake()
+    {
+               
+    }
+
+
+
+
+
+
+
     void Start()
     {
-
-        PlayCards();
-
+        deck = GenerateDeck();
+        Shuffle(deck);
+        BlackjackDeal();
 
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            hit = true;
+            PlayBlackjack();
+        }
 
     }
-
 
     public int GetValue(string card)
     {
@@ -73,35 +102,26 @@ public class Blackjack : MonoBehaviour
                     break;
 
                 case 'A':
-                if (cardpointcount <= 21)
-                {
-                    value += 11;
-                }
-                else
-                {
-                    value += 1;
-                }
+                    if (cardpointcount <= 21)
+                    {
+                        value += 11;
+                    }
+                    else
+                    {
+                        value += 1;
+                    }
                     break;
             }
-
         }
         else
         {
             value += 10;
         }
-
         return value;
     }
 
 
-    public void PlayCards()
-    {
-        deck = GenerateDeck();
-        Shuffle(deck);
-        BlackjackDeal();
 
-
-    }
 
 
 
@@ -142,10 +162,11 @@ public class Blackjack : MonoBehaviour
 
     void BlackjackDeal()
     {
-        float xOffset = 0f;
+        xOffset = 0f;
         playertotal = 0;
-        int playervalueone = 0;
-        int playervaluetwo = 0;
+        playervalueone = 0;
+        playervaluetwo = 0;
+        
 
         for (int i = 0; i < 4; i++)
         {
@@ -153,69 +174,98 @@ public class Blackjack : MonoBehaviour
             string card = deck[i];
             float positionx = playingPos.transform.position.x;
             float positiony = playingPos.transform.position.y;
-
             GameObject newCard = Instantiate(cardPrefab, new Vector2(positionx + xOffset, positiony), Quaternion.identity);
-
             newCard.name = card;
-
             newCard.GetComponent<Selectable>().faceUp = true;
-
             GetValue(card);
-
-
             if (i < 1)
             {
                 GetValue(card);
-                playervalueone =+ GetValue(card);
+                playervalueone = +GetValue(card);
             }
             else if (i > 1 || i < 3)
             {
                 GetValue(card);
-                playervaluetwo =+ GetValue(card);
+                playervaluetwo = +GetValue(card);
+                cardpointcount = playertotal;
 
                 playertotal = playervalueone + playervaluetwo;
+                if (playertotal == 21)
+                {
+                    print("Blackjack!");
+                }
                 Debug.Log(playertotal);
             }
-        
-                
-
             i++;
 
             if (i <= 2)
             {
-                string card1 = deck[i];
+                string card2 = deck[i];
                 float positionx1 = dealerPos.transform.position.x;
                 float positiony1 = dealerPos.transform.position.y;
                 GameObject Dealercard = Instantiate(cardPrefab, new Vector2(positionx1 + xOffset, positiony1), Quaternion.identity);
 
-                Dealercard.name = card1;
-
-
-
-
-
+                Dealercard.name = card2;
                 Dealercard.GetComponent<Selectable>().faceUp = true;
-
-
-                xOffset += 0.5f;
-
-                GetValue(card1);
-
-                int DealerValueone = GetValue(card1);
+                GetValue(card2);
+                int DealerValueone = GetValue(card2);
             }
-
+            xOffset += 0.5f;
             i++;
         }
-
-
-
-
-
     }
 
 
+    void PlayBlackjack()
+    {
+        
+        for (hitt = 0 ; hitt <= 1; hitt++)
+        {
+            xOffset = 0;
+            hitt++;
+        }
 
-    // GameObject newCard = Instantiate(cardPrefab, new Vector3(transform.position.x + xOffset, transform.position.y, transform.position.z - zOffset), Quaternion.identity);
+        if (hit == true)
+        {
+            
+            string card = deck[deckcard];
+            float positionx = playingPos1.transform.position.x;
+            float positiony = playingPos1.transform.position.y;
 
+            GameObject newCard = Instantiate(cardPrefab, new Vector2(positionx + xOffset, positiony), Quaternion.identity);
+            newCard.name = card;
+            newCard.GetComponent<Selectable>().faceUp = true;
+            int nextnumber = GetValue(card);
+            playertotal += nextnumber;
+            Debug.Log(playertotal);
+
+        }
+
+        if (playertotal > 21)
+        {
+            print("To many!");
+
+        }
+        xOffset += 0.5f;
+        deckcard++;
+        hit = false;
+
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
