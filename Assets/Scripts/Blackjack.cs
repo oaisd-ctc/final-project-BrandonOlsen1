@@ -38,10 +38,10 @@ public class Blackjack : MonoBehaviour
     private int DealerTotal;
     private int DealerValueone;
     private int total;
-    private bool one = false;
+
+    private bool eleven = false;
 
 
-    bool bust = false;
 
 
 
@@ -87,10 +87,7 @@ public class Blackjack : MonoBehaviour
             stand = true;
             PlayBlackjackstand();
         }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            one = true;
-        }
+
 
     }
 
@@ -124,14 +121,13 @@ public class Blackjack : MonoBehaviour
 
                     if (total + 11 > 21)
                     {
+
                         value += 1;
-                    }
-                    else if (one == true)
-                    {
-                        value += 1;
+
                     }
                     else
                     {
+                        eleven = true;
                         value += 11;
                     }
                     break;
@@ -267,18 +263,18 @@ public class Blackjack : MonoBehaviour
                     deckcard += 4;
                     xOffset += 1f;
 
-                    if (bust == false)
+
+                    if (DealerTotal >= 17 && DealerTotal <= 21)
                     {
-                        if (DealerTotal >= 17 && DealerTotal <= 21)
-                        {
-                            print("Dealer wins and has " + DealerTotal);
-                            stand = false;
-                        }
-                        else if (DealerTotal > 21)
-                        {
+                        print("Dealer wins and has " + DealerTotal);
+                        stand = false;
+                    }
+                    else if (DealerTotal > 21)
+                    {
+                            playertotal -= 10;
+                        
                             print("Dealer Bust with " + DealerTotal);
                             stand = false;
-                        }
                     }
                 }
             }
@@ -310,15 +306,21 @@ public class Blackjack : MonoBehaviour
 
 
             }
-
-            if (playertotal > 21)
+            if (playertotal == 21)
             {
-                print("To many!");
-                bust = true;
                 stand = true;
                 PlayBlackjackstand();
-
-
+            }
+            if (playertotal > 21)
+            {
+                if (eleven == true)
+                {
+                    playertotal -= 10;
+                }
+                else
+                {
+                    print("To many!");
+                }
             }
             xOffset1 += 1f;
             deckcard++;
