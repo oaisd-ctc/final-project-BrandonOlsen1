@@ -40,8 +40,8 @@ public class Blackjack : MonoBehaviour
     private int total;
 
     private int value = 0;
-    private bool player = false;
-    private bool dealer = false;
+    private bool eleven = false;
+
 
 
 
@@ -79,6 +79,7 @@ public class Blackjack : MonoBehaviour
         deck = GenerateDeck();
         Shuffle(deck);
         BlackjackDeal();
+        
 
     }
 
@@ -105,25 +106,30 @@ public class Blackjack : MonoBehaviour
         {
             value += System.Convert.ToInt32(System.Convert.ToString(card[1]));
         }
-        else if (card[1] == 'J' || card[1] == 'Q' || card[1] == 'K')
+        else if (card[1] == 'J' || card[1] == 'Q' || card[1] == 'K' || card[1] == 'A')
         {
             switch (card[1])
             {
                 // turn jacks value to 10
                 case 'J':
+
                     value += 10;
                     break;
                 // turn Queens value to 10
                 case 'Q':
+
                     value += 10;
                     break;
 
                 // turn Kings value to 10
                 case 'K':
+
                     value += 10;
                     break;
                 case 'A':
-                    Countcardpointsnomatterwhat();
+                    eleven = true;
+                    value += 11;
+
                     break;
 
             }
@@ -177,8 +183,7 @@ public class Blackjack : MonoBehaviour
 
 
 
-    void BlackjackDeal()
-    {
+    void BlackjackDeal(){
         xOffset = 0f;
         playertotal = 0;
         playervalueone = 0;
@@ -198,27 +203,28 @@ public class Blackjack : MonoBehaviour
             GetValue(card);
             if (i < 1)
             {
-                player = true;
-                GetValue(card);
-                playervalueone = +GetValue(card);
-                
 
-                
+                GetValue(card);
+                playervalueone =+ GetValue(card);
+
+
+
             }
             else if (i > 1 || i < 3)
             {
-                
-                GetValue(card);
-                playervaluetwo = +GetValue(card);
-                cardpointcount = playertotal;
-                
 
+                GetValue(card);
+                playervaluetwo =+ +GetValue(card);
+                
                 playertotal = playervalueone + playervaluetwo;
+
                 if (playertotal == 21)
                 {
                     print("Blackjack!");
                 }
-                print(playertotal);
+                
+                    print(playertotal);
+                
             }
             i++;
 
@@ -233,12 +239,11 @@ public class Blackjack : MonoBehaviour
                 Dealercard.GetComponent<Selectable>().faceUp = true;
 
 
-                dealer = true;
+
                 GetValue(card2);
                 DealerTotal = GetValue(card2);
-                Countcardpointsnomatterwhat();
-                dealer = false;
-                
+
+
             }
             xOffset += 0.5f;
             i++;
@@ -264,13 +269,13 @@ public class Blackjack : MonoBehaviour
 
                 Dealercard.name = card2;
                 Dealercard.GetComponent<Selectable>().faceUp = true;
-                
-                dealer = true;
+
+
                 GetValue(card2);
-                int DealerValueone = GetValue(card2);
-                DealerTotal += DealerValueone;
-                dealer = false;
-                
+                DealerTotal += GetValue(card2);
+
+
+
 
 
                 deckcard += 4;
@@ -291,13 +296,17 @@ public class Blackjack : MonoBehaviour
                     stand = false;
 
                 }
+                else if (DealerTotal > 21 && eleven == true)
+                {
+                    DealerTotal -= 10;
+                    eleven = false;
+                }
                 else if (DealerTotal > 21)
                 {
-                    
-
                     print("Dealer Bust with " + DealerTotal);
                     stand = false;
                 }
+
             }
         }
     }
@@ -307,7 +316,7 @@ public class Blackjack : MonoBehaviour
     void PlayBlackjackhit()
     {
 
-
+        
         if (playertotal < 21)
         {
             if (hit == true)
@@ -320,59 +329,49 @@ public class Blackjack : MonoBehaviour
                 GameObject newCard = Instantiate(cardPrefab, new Vector2(positionx + xOffset1, positiony), Quaternion.identity);
                 newCard.name = card;
                 newCard.GetComponent<Selectable>().faceUp = true;
-                
-                player = true;
-                int nextnumber = GetValue(card);
-                playertotal += nextnumber;
-                print(playertotal);
-                player = false;
 
+
+                int nextnumber = GetValue(card);
+
+
+                playertotal += nextnumber;
+
+                print(playertotal);
+                
+                if (playertotal > 21 && eleven == true)
+                {
+                    playertotal -= 10;
+                    eleven = false;
+                }
             }
             if (playertotal == 21)
             {
                 stand = true;
                 print(playertotal);
                 PlayBlackjackstand();
-
             }
             else if (playertotal > 21)
             {
-                    print("To many!");
-                    stand = true;
+                print("To many!");
+                stand = true;
             }
             xOffset1 += 1f;
             deckcard++;
             hit = false;
-
         }
     }
 
 
 
 
-    void Countcardpointsnomatterwhat()
-    {
-
-        if (player == true)
-        {
-           dealer = false;
-        }
-
-        if (dealer == true)
-        {
-            player = false;
-        }
-        else
-        {
-            player = false;
-            dealer = false;
-        }
 
 
 
 
 
-    }
+
+
+
 
 
 
