@@ -27,7 +27,7 @@ public class OnHitInstructions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             stand = true;
-            InstructionHit();
+            InstructionStand();
 
         }
     }
@@ -48,7 +48,7 @@ public class OnHitInstructions : MonoBehaviour
     {
         if (stand == true)
         {
-            GameObject newCard = Instantiate(Card2, new Vector2(-0.037f, 2.2f), Quaternion.identity);
+            GameObject newCard = Instantiate(Card2, new Vector2(.6f, 1.5f), Quaternion.identity);
             print("You WIN Congrats you are ready to play!");
             stand = false;
         }
