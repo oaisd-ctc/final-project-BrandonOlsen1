@@ -9,4 +9,10 @@ public class screenloader : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
+
+
+    public void LoadHowToPlay()
+    {
+        SceneManager.LoadScene("HowToPlay");
+    }
 }

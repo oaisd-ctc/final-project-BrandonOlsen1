@@ -9,6 +9,10 @@ public class RestartGame : MonoBehaviour
    public void ResetTheGame()
    {
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    print("THE BUTTON WORKS");
+   }
+
+   public void BackToLobby()
+   {
+      SceneManager.LoadScene("PreGameLobby");
    }
 }

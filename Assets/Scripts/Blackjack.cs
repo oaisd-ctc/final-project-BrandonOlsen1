@@ -6,57 +6,25 @@ using UnityEngine.InputSystem;
 
 public class Blackjack : MonoBehaviour
 {
-
     public Sprite[] cardFaces;
     public GameObject cardPrefab;
-
     public GameObject playingPos;
-
     public GameObject dealerPos;
-
     public GameObject playingPos1;
-
-
-
     private int playertotal;
-
-
     public int cardpointcount;
-
     private int playervalueone;
     private int playervaluetwo;
-
     private float xOffset;
-
     private int deckcard;
-
     private bool hit = false;
-
     private bool stand = false;
-
     private float xOffset1;
     private int DealerTotal;
     private int DealerValueone;
     private int total;
-
     private int value = 0;
     private bool eleven = false;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public static string[] suits = new string[] { "C", "D", "H", "S" };
     public static string[] values = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
     public List<string> deck;
@@ -313,7 +281,7 @@ public class Blackjack : MonoBehaviour
 
 
 
-    void PlayBlackjackhit()
+    public void PlayBlackjackhit()
     {
 
         

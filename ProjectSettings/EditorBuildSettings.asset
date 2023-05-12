@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/PreGameLobby.unity
+    guid: 8d00a4a1ef0d84341bfa296fa18fc465
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
+    guid: 14004fa50ebedc448b8d6f4fb8d7adc4
   m_configObjects: {}
