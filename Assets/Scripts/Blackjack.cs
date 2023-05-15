@@ -326,7 +326,7 @@ public class Blackjack : MonoBehaviour
             }
             else if (playertotal > 21)
             {
-                print("To many!");
+                print("Too many!");
                 stand = true;
             }
             xOffset1 += 1f;
