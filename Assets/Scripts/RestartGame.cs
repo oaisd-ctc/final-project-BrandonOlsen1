@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class RestartGame : MonoBehaviour
 {
-   
-   public void ResetTheGame()
-   {
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-   }
 
-   public void BackToLobby()
-   {
-      SceneManager.LoadScene("PreGameLobby");
-   }
+    public void ResetTheGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+         print("New round!");
+    }
+
+    public void BackToLobby()
+    {
+        SceneManager.LoadScene("PreGameLobby");
+    }
+
+
+    
+
+
 }

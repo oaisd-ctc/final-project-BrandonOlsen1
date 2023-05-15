@@ -249,9 +249,16 @@ public class Blackjack : MonoBehaviour
                 deckcard += 4;
                 xOffset += 1f;
 
+                 if (DealerTotal > 21 && eleven == true)
+                {
+                    DealerTotal -= 10;
+                    eleven = false;
+                }
+
 
                 if (DealerTotal >= 17 && DealerTotal <= 21)
-                {
+                {   
+
                     if (DealerTotal > playertotal)
                     {
                         print("Dealer wins and has " + DealerTotal);
@@ -264,14 +271,10 @@ public class Blackjack : MonoBehaviour
                     stand = false;
 
                 }
-                else if (DealerTotal > 21 && eleven == true)
-                {
-                    DealerTotal -= 10;
-                    eleven = false;
-                }
+                
                 else if (DealerTotal > 21)
                 {
-                    print("Dealer Bust with " + DealerTotal);
+                    print("Player wins Dealer has " + DealerTotal);
                     stand = false;
                 }
 
@@ -304,18 +307,21 @@ public class Blackjack : MonoBehaviour
 
                 playertotal += nextnumber;
 
-                print(playertotal);
+            
+
+                
                 
                 if (playertotal > 21 && eleven == true)
                 {
                     playertotal -= 10;
                     eleven = false;
                 }
+                 print(playertotal);
+                 print("");
             }
             if (playertotal == 21)
             {
                 stand = true;
-                print(playertotal);
                 PlayBlackjackstand();
             }
             else if (playertotal > 21)
@@ -327,6 +333,8 @@ public class Blackjack : MonoBehaviour
             deckcard++;
             hit = false;
         }
+        
+        
     }
 
 
