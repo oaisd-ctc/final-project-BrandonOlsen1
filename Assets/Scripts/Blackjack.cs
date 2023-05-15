@@ -274,7 +274,7 @@ public class Blackjack : MonoBehaviour
                 
                 else if (DealerTotal > 21)
                 {
-                    print("Player wins Dealer has " + DealerTotal);
+                    print("Player wins Dealer has " + DealerTotal + " compared to the Players " + playertotal);
                     stand = false;
                 }
 
