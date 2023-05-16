@@ -9,8 +9,10 @@ public class RestartGame : MonoBehaviour
 
     public void ResetTheGame()
     {
+        PlayerTotal.playerValue = 0;
+        DealersAmount.DealerValue = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-         print("New round!");
+
     }
 
     public void BackToLobby()
@@ -19,7 +21,7 @@ public class RestartGame : MonoBehaviour
     }
 
 
-    
+
 
 
 }

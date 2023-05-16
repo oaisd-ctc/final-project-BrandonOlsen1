@@ -185,6 +185,7 @@ public class Blackjack : MonoBehaviour
                 playervaluetwo =+ +GetValue(card);
                 
                 playertotal = playervalueone + playervaluetwo;
+                PlayerTotal.playerValue += playertotal;
 
                 if (playertotal == 21)
                 {
@@ -210,6 +211,8 @@ public class Blackjack : MonoBehaviour
 
                 GetValue(card2);
                 DealerTotal = GetValue(card2);
+                DealersAmount.DealerValue += DealerTotal;
+                
 
 
             }
@@ -241,6 +244,8 @@ public class Blackjack : MonoBehaviour
 
                 GetValue(card2);
                 DealerTotal += GetValue(card2);
+                  DealersAmount.DealerValue = DealerTotal;
+                
 
 
 
@@ -306,6 +311,7 @@ public class Blackjack : MonoBehaviour
 
 
                 playertotal += nextnumber;
+                PlayerTotal.playerValue = playertotal;
 
             
 
