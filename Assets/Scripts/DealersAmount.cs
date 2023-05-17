@@ -5,20 +5,17 @@ using UnityEngine.UI;
 
 public class DealersAmount : MonoBehaviour
 {
-    public static int DealerValue = 0;
-    Text Dealer;
+    public static int dealerValue = 0;
+    Text dealer;
 
     void Start()
     {
-        Dealer = GetComponent<Text> ();
+        dealer = GetComponent<Text>();
     }
 
 
-    void Update ()
+    void Update()
     {
-        Dealer.text = "Dealer: " + DealerValue;
+        dealer.text = "Dealer: " + dealerValue;
     }
-
-
-
 }

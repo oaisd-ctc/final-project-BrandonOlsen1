@@ -10,7 +10,7 @@ public class RestartGame : MonoBehaviour
     public void ResetTheGame()
     {
         PlayerTotal.playerValue = 0;
-        DealersAmount.DealerValue = 0;
+        DealersAmount.dealerValue = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }

@@ -24,7 +24,8 @@ public class Blackjack : MonoBehaviour
     private int DealerValueone;
     private int total;
     private int value = 0;
-    private bool eleven = false;
+    private bool playereleven = false;
+    private bool dealereleven = false;
     public static string[] suits = new string[] { "C", "D", "H", "S" };
     public static string[] values = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
     public List<string> deck;
@@ -47,7 +48,7 @@ public class Blackjack : MonoBehaviour
         deck = GenerateDeck();
         Shuffle(deck);
         BlackjackDeal();
-        
+
 
     }
 
@@ -95,7 +96,8 @@ public class Blackjack : MonoBehaviour
                     value += 10;
                     break;
                 case 'A':
-                    eleven = true;
+                    playereleven = true;
+                    dealereleven = true;
                     value += 11;
 
                     break;
@@ -151,7 +153,8 @@ public class Blackjack : MonoBehaviour
 
 
 
-    void BlackjackDeal(){
+    void BlackjackDeal()
+    {
         xOffset = 0f;
         playertotal = 0;
         playervalueone = 0;
@@ -173,7 +176,8 @@ public class Blackjack : MonoBehaviour
             {
 
                 GetValue(card);
-                playervalueone =+ GetValue(card);
+                playervalueone = +GetValue(card);
+                dealereleven = false;
 
 
 
@@ -182,8 +186,9 @@ public class Blackjack : MonoBehaviour
             {
 
                 GetValue(card);
-                playervaluetwo =+ +GetValue(card);
-                
+                playervaluetwo = + +GetValue(card);
+                dealereleven = false;
+
                 playertotal = playervalueone + playervaluetwo;
                 PlayerTotal.playerValue += playertotal;
 
@@ -191,9 +196,9 @@ public class Blackjack : MonoBehaviour
                 {
                     print("Blackjack!");
                 }
-                
-                    print(playertotal);
-                
+
+                print(playertotal);
+
             }
             i++;
 
@@ -211,8 +216,9 @@ public class Blackjack : MonoBehaviour
 
                 GetValue(card2);
                 DealerTotal = GetValue(card2);
-                DealersAmount.DealerValue += DealerTotal;
-                
+                DealersAmount.dealerValue += DealerTotal;
+                playereleven = false;
+
 
 
             }
@@ -244,8 +250,15 @@ public class Blackjack : MonoBehaviour
 
                 GetValue(card2);
                 DealerTotal += GetValue(card2);
-                  DealersAmount.DealerValue = DealerTotal;
-                
+                playereleven = false;
+
+                if (DealerTotal > 21 && dealereleven == true)
+                {
+                    DealerTotal -= 10;
+                    dealereleven = false;
+                }
+                DealersAmount.dealerValue = DealerTotal;
+
 
 
 
@@ -254,31 +267,39 @@ public class Blackjack : MonoBehaviour
                 deckcard += 4;
                 xOffset += 1f;
 
-                 if (DealerTotal > 21 && eleven == true)
-                {
-                    DealerTotal -= 10;
-                    eleven = false;
-                }
 
 
                 if (DealerTotal >= 17 && DealerTotal <= 21)
-                {   
+                {
 
-                    if (DealerTotal > playertotal)
+                    if (DealerTotal == playertotal)
                     {
+                        if (DealerTotal == playertotal)
+                        {
+                            print("push!");
+
+                        }
+
+                    }
+                    else if (DealerTotal > playertotal)
+                    {
+                        DealerTotalScore.dealerscoreValue++;
                         print("Dealer wins and has " + DealerTotal);
+
                     }
                     else
                     {
+                        TotalGameScore.playerscoreValue++;
                         print("Player wins Dealer has " + DealerTotal);
                     }
 
                     stand = false;
 
                 }
-                
+
                 else if (DealerTotal > 21)
                 {
+                    TotalGameScore.playerscoreValue++;
                     print("Player wins Dealer has " + DealerTotal + " compared to the Players " + playertotal);
                     stand = false;
                 }
@@ -292,7 +313,7 @@ public class Blackjack : MonoBehaviour
     public void PlayBlackjackhit()
     {
 
-        
+
         if (playertotal < 21)
         {
             if (hit == true)
@@ -308,22 +329,24 @@ public class Blackjack : MonoBehaviour
 
 
                 int nextnumber = GetValue(card);
+                dealereleven = false;
 
 
                 playertotal += nextnumber;
-                PlayerTotal.playerValue = playertotal;
 
-            
-
-                
-                
-                if (playertotal > 21 && eleven == true)
+                if (playertotal > 21 && playereleven == true)
                 {
                     playertotal -= 10;
-                    eleven = false;
+                    playereleven = false;
                 }
-                 print(playertotal);
-                 print("");
+                PlayerTotal.playerValue = playertotal;
+
+
+
+
+
+                print(playertotal);
+                print("");
             }
             if (playertotal == 21)
             {
@@ -332,15 +355,17 @@ public class Blackjack : MonoBehaviour
             }
             else if (playertotal > 21)
             {
+                DealerTotalScore.dealerscoreValue++;
                 print("Too many!");
                 stand = true;
+
             }
             xOffset1 += 1f;
             deckcard++;
             hit = false;
         }
-        
-        
+
+
     }
 
 
