@@ -24,11 +24,17 @@ public class Blackjack : MonoBehaviour
     private int DealerValueone;
     private int total;
     private int value = 0;
-    private bool eleven = false;
+
+    private bool PlayGame = true;
+    private int playerAce = 0;
+    private int DealerAce = 0;
+    private bool Ace = false;
+
 
     public static string[] suits = new string[] { "C", "D", "H", "S" };
     public static string[] values = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
     public List<string> deck;
+
 
 
 
@@ -45,6 +51,7 @@ public class Blackjack : MonoBehaviour
 
     void Start()
     {
+        PlayGame = true;
         deck = GenerateDeck();
         Shuffle(deck);
         BlackjackDeal();
@@ -54,15 +61,18 @@ public class Blackjack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (PlayGame == true)
         {
-            hit = true;
-            PlayBlackjackhit();
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            stand = true;
-            PlayBlackjackstand();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                hit = true;
+                PlayBlackjackhit();
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                stand = true;
+                PlayBlackjackstand();
+            }
         }
     }
 
@@ -96,9 +106,8 @@ public class Blackjack : MonoBehaviour
                     value += 10;
                     break;
                 case 'A':
-                    eleven = true;
+                Ace = true;
                     value += 11;
-
                     break;
 
             }
@@ -154,6 +163,9 @@ public class Blackjack : MonoBehaviour
 
     void BlackjackDeal()
     {
+
+        playerAce = 0;
+        DealerAce = 0;
         xOffset = 0f;
         playertotal = 0;
         playervalueone = 0;
@@ -176,7 +188,12 @@ public class Blackjack : MonoBehaviour
 
                 GetValue(card);
                 playervalueone = +GetValue(card);
-                
+                if (Ace == true)
+                {
+                    playerAce++;
+                    Ace = false;
+                }
+
 
 
 
@@ -186,7 +203,20 @@ public class Blackjack : MonoBehaviour
 
                 GetValue(card);
                 playervaluetwo = + +GetValue(card);
-                
+                if (Ace == true)
+                {
+                    playerAce++;
+                    Ace = false;
+                }
+                if (playertotal > 21)
+                {
+                   playerAce *= 10;
+                   playertotal -= playerAce; 
+                   playerAce = 0;   
+                }
+                PlayerTotal.playerValue = playertotal;
+
+
 
                 playertotal = playervalueone + playervaluetwo;
                 PlayerTotal.playerValue += playertotal;
@@ -215,8 +245,13 @@ public class Blackjack : MonoBehaviour
 
                 GetValue(card2);
                 DealerTotal = GetValue(card2);
+                if (Ace == true)
+                {
+                    DealerAce++;
+                    Ace = false;
+                }
                 DealersAmount.dealerValue += DealerTotal;
-                
+
 
 
 
@@ -233,6 +268,7 @@ public class Blackjack : MonoBehaviour
 
         while (stand == true)
         {
+            PlayGame = false;
             if (DealerTotal < 17)
             {
 
@@ -249,12 +285,17 @@ public class Blackjack : MonoBehaviour
 
                 GetValue(card2);
                 DealerTotal += GetValue(card2);
-                
-
-                if (DealerTotal > 21 && eleven == true)
+                if (Ace == true)
                 {
-                    DealerTotal -= 10;
-                    eleven = false;
+                    DealerAce++;
+                    Ace = false;
+                }
+
+                if (DealerTotal > 21)
+                {
+                    DealerAce *= 10;
+                    DealerTotal -= DealerAce;
+                    DealerAce = 0;
                 }
                 DealersAmount.dealerValue = DealerTotal;
 
@@ -328,15 +369,21 @@ public class Blackjack : MonoBehaviour
 
 
                 int nextnumber = GetValue(card);
-                
+                if (Ace == true)
+                {
+                    playerAce++;
+                    Ace = false;
+                }
+
 
 
                 playertotal += nextnumber;
-
-                if (playertotal > 21 && eleven == true)
+                if (playertotal > 21)
                 {
-                    playertotal -= 10;
-                    eleven = false;
+                    
+                   playerAce *= 10;
+                   playertotal -= playerAce; 
+                    playerAce = 0;    
                 }
                 PlayerTotal.playerValue = playertotal;
 
@@ -354,6 +401,7 @@ public class Blackjack : MonoBehaviour
             }
             else if (playertotal > 21)
             {
+                PlayGame = false;
                 DealerTotalScore.dealerscoreValue++;
                 print("Too many!");
                 stand = true;
