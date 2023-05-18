@@ -29,6 +29,7 @@ public class Blackjack : MonoBehaviour
     private int playerAce = 0;
     private int DealerAce = 0;
     private bool Ace = false;
+   
 
 
     public static string[] suits = new string[] { "C", "D", "H", "S" };
@@ -203,6 +204,9 @@ public class Blackjack : MonoBehaviour
 
                 GetValue(card);
                 playervaluetwo = + +GetValue(card);
+                playertotal = playervalueone + playervaluetwo;
+
+
                 if (Ace == true)
                 {
                     playerAce++;
@@ -215,11 +219,6 @@ public class Blackjack : MonoBehaviour
                    playerAce = 0;   
                 }
                 PlayerTotal.playerValue = playertotal;
-
-
-
-                playertotal = playervalueone + playervaluetwo;
-                PlayerTotal.playerValue += playertotal;
 
                 if (playertotal == 21)
                 {
